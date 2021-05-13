@@ -152,7 +152,7 @@ export default function Booking({ paymentMethods }) {
               </ul>
 
               <img 
-                src={`${process.env.NEXT_PUBLIC_API_URL}${booking.raffle?.images[0].url}`} 
+                src={booking.raffle?.images[0].url} 
                 alt={booking.raffle?.name} 
               />
             </main>
@@ -167,7 +167,7 @@ export default function Booking({ paymentMethods }) {
           <main>
             {paymentMethods?.map(method => (
               <div className={styles.paymentMethod}>
-                <img src={`${process.env.NEXT_PUBLIC_API_URL}${method.logo.url}`} alt={method.name} />
+                <img src={method.logo.url} alt={method.name} />
 
                 <strong>{method.name}</strong>
                 <Markdown>{method.description}</Markdown>

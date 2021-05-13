@@ -22,7 +22,7 @@ export function DrawnRaffle({ data }) {
               <small>Concurso {String(raffle.competition).padStart(4, '0')}</small>
             </div>
             <img
-              src={`${process.env.NEXT_PUBLIC_API_URL}${raffle?.thumbnail}`}
+              src={raffle?.thumbnail}
               alt={raffle.name}
             />
             <span>Ganhador: <strong>{raffle.winner}</strong></span>

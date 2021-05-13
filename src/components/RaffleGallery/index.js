@@ -13,7 +13,7 @@ export function RaffleGallery ({ raffle }) {
       >
         {raffle.images.map(image => (
           <div key={image.url}>
-            <img src={`${process.env.NEXT_PUBLIC_API_URL}${image.url}`} alt={raffle.name} />
+            <img src={image.url} alt={raffle.name} />
           </div>
         ))}
       </Carousel>

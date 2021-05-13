@@ -21,7 +21,7 @@ export function InProgressRaffle({ data }) {
         {raffles.map(raffle => (
           <div className={styles.raffle} key={String(`raffle-${raffle.id}`)}>
             <picture>
-              <img src={`${process.env.NEXT_PUBLIC_API_URL}${raffle.thumbnail}`} alt={raffle.name} />
+              <img src={raffle.thumbnail} alt={raffle.name} />
             </picture>
             <strong>{raffle.name}</strong>
             
