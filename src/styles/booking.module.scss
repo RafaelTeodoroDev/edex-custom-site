@@ -1,0 +1,168 @@
+.container {
+  margin: 0 auto;
+  width: 1160px;
+
+  > main {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 2rem;
+
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+  }
+}
+
+.infoContainer {
+  border: 1px solid var(--white);
+  border-radius: 3px;
+
+  > header {
+    background: var(--gray-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    strong {
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-align: center;
+    }
+  }
+
+  > main {
+    padding: 2rem;
+
+    ul {
+      list-style: none;
+      margin-bottom: 2rem;
+
+      li {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        font-size: 0.8rem;
+
+        span:nth-child(2) {
+          font-weight: 600;
+        }
+
+        & + li {
+          border-top: 1px solid #ddd;
+          margin-top: 0.7rem;
+          padding-top: 0.7rem;
+        }
+
+        &.price {
+          color: var(--red);
+          font-size: 1.1rem;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-size: 0.9rem;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+      }
+
+      button {
+        background: var(--green);
+        border: 0;
+        border-radius: 20px;
+        color: var(--white);
+        margin-top: 1rem;
+        height: 40px;
+        padding: 0 2rem;
+
+        &:disabled {
+          filter: brightness(0.8);
+          pointer-events: none;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  }
+}
+
+.billingAlert {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 300;
+
+  svg {
+    color: var(--blue);
+    margin-right: 1rem;
+  }
+}
+
+.billingSuccess {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-top: 3rem;
+
+  svg {
+    color: var(--green);
+    margin-right: 1rem;
+  }
+}
+
+
+.paymentMethods {
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  > main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 8rem;
+
+    .paymentMethod {
+      border: 1px solid var(--white);
+      padding: 2rem;
+      width: 33%;
+      text-align: center;
+
+      img {
+        margin-bottom: 1.2rem;
+      }
+      
+      strong {
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      p {
+        font-size: 0.8rem;
+        line-height: 1.4rem;
+      }
+    }
+  }
+}

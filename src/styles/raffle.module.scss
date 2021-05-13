@@ -1,0 +1,106 @@
+.container {
+  margin: 0 auto;
+  width: 1160px;
+
+  > main {
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .advise {
+      background: lighten(#f1c40f, 40%);
+      border: 1px solid lighten(#f1c40f, 10%);
+      border-radius: 10px;
+      color: var(--gray-900);
+      font-size: 0.8rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      padding: 1rem;
+    }
+  }
+}
+
+.numberContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-bottom: 4rem;
+
+  button {
+    background: var(--white);
+    border: 1px solid var(--white);
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & + button {
+      margin-left: 1rem;
+    }
+
+    &:nth-child(1) {
+      color: var(--green);
+      border-color: var(--gren);
+    }
+
+    &:nth-child(2) {
+    }
+
+    &:nth-child(3) {
+      background: var(--green);
+      border-color: var(--gren);
+    }
+
+    &:nth-child(4) {
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+  }
+}
+
+.subscribeButton {
+  background: var(--green);
+  border: 0;
+  border-radius: 20px;
+  color: var(--white);
+  height: 40px;
+  margin: 2rem auto 0;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rules {
+  margin-top: 4rem;
+  border-top: 1px solid var(--white);
+  padding: 4rem 0;
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}

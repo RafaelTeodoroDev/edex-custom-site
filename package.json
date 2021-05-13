@@ -8,8 +8,19 @@
     "start": "next start"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.4.0",
+    "axios": "^0.21.1",
+    "date-fns": "^2.21.3",
     "next": "10.2.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.4.1",
+    "react-icons": "^4.2.0",
+    "react-markdown": "^6.0.2",
+    "react-modal": "^3.13.1",
+    "react-responsive-carousel": "^3.2.18",
+    "react-tooltip": "^4.2.19",
+    "sass": "^1.32.12",
+    "yup": "^0.32.9"
   }
 }

@@ -1,0 +1,32 @@
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+
+  > img {
+    margin-right: 4rem;
+    width: 250px;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+
+  a {
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.2s;
+
+    &:hover {
+      color: var(--red);
+    }
+
+    & + a {
+      margin-left: 2rem;
+    }
+  }
+}

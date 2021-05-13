@@ -1,0 +1,101 @@
+.modal {
+  background: var(--white);
+  border-radius: 10px;
+  color: var(--black);
+  min-width: 500px;
+
+  form {
+    > header {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ddd;
+
+      strong {
+        font-size: 1.25rem;
+        font-weight: 400;
+      }
+
+      button {
+        background: none;
+        border: 0;
+      }
+    }
+
+    > main {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+
+      > span {
+        font-size: 0.8rem;
+      }
+
+      input {
+        height: 40px;
+        border-radius: 6px;
+        border: 1px solid #d3d3d3;
+        padding: 0 1rem;
+
+        & + input {
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    > footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 1rem 2rem;
+
+      button {
+        border: 0;
+        border-radius: 6px;
+        color: var(--gray-900);
+        font-size: 1rem;
+        font-weight: 400;
+        height: 40px;
+        padding: 0 1rem;
+
+        &:nth-child(2) {
+          background: var(--red);
+          color: var(--white);
+        }
+
+        & + button {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+.numberContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.25rem;
+
+  .number {
+    align-items: center;
+    background: var(--red);
+    border-radius: 3px;
+    color: var(--white);
+    display: flex;
+    height: 20px;
+    font-size: 0.8rem;
+    padding: 0 0.8rem;
+
+    & + .number {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.price {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-style: italic;
+}

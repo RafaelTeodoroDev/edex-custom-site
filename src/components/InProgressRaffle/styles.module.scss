@@ -1,0 +1,78 @@
+.raffleContainer {
+  border-top: 1px solid var(--white);
+  padding-top: 2rem;
+  margin-bottom: 8rem;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    letter-spacing: 4px;
+    text-align: center;
+    text-transform: uppercase;
+
+    span {
+      color: var(--red);
+    }
+  }
+
+  > main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+  }
+}
+
+.raffle {
+  background: var(--gray-900);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+
+  &:hover {
+    picture {
+      img {
+        transform: scale(1);
+      }
+    }
+  }
+
+  picture {
+    display: block;
+    height: 230px;
+    overflow: hidden;
+    width: 100%;
+
+    img {
+      display: block;
+      height: 230px;
+      object-fit: cover;
+      width: 100%;
+      transform: scale(1.2);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  strong {
+    display: block;
+    font-size: 1.125rem;
+    margin: 1rem 2rem;
+  }
+
+  button {
+    background: var(--red);
+    border: 0;
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 700;
+    height: 40px;
+    margin: 0 2rem 2rem;
+    text-align: center;
+    width: calc(100% - 4rem);
+    transition: all 0.4s;
+
+    &:hover {
+      filter: brightness(80%);
+    }
+  }
+}
