@@ -159,8 +159,6 @@ export default function Booking({ paymentMethods }) {
           </section>
         </main>
 
-        
-
         <section className={styles.paymentMethods}>
           <h2>Formas de pagamento</h2>
 
