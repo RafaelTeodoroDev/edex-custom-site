@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { SubscriptionModal } from '../../components/SubscriptionModal';
+import { SearchModal } from '../../components/SearchModal';
 import { SubscriptionButton } from '../../components/SubscriptionButton';
 import { RaffleGallery } from '../../components/RaffleGallery';
 
@@ -22,6 +23,7 @@ export default function Raffle({ raffle, subscriptions }) {
 
   const [selecteds, setSelecteds] = useState([])
   const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [raffleSubscriptions, setRaffleSubscriptions] = useState(subscriptions);
   const [raffleNumbers, setRaffleNumbers] = useState([]);
 
@@ -61,6 +63,10 @@ export default function Raffle({ raffle, subscriptions }) {
 
   function handleSubscribe() {
     setIsSubscriptionModalOpen(true);
+  }
+
+  function handleOpenSearchBooking () {
+    setIsSearchModalOpen(true);
   }
 
   useEffect(() => {
@@ -110,6 +116,10 @@ export default function Raffle({ raffle, subscriptions }) {
             <button type="button" onClick={() => setRaffleNumbers(paidNumbers)}>
               Pago ({paidNumbers.length})
             </button>
+
+            <button type="button" onClick={handleOpenSearchBooking}>
+              Consultar reserva
+            </button>
           </div>
           
           <section className={styles.numberContainer}>
@@ -148,6 +158,12 @@ export default function Raffle({ raffle, subscriptions }) {
             raffle,
             numbers: selecteds
           }}
+        />
+
+        <SearchModal
+          isOpen={isSearchModalOpen}
+          onRequestClose={() => setIsSearchModalOpen(false)}
+          data={raffle}
         />
       </div>
 

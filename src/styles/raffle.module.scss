@@ -41,8 +41,9 @@
   margin-bottom: 4rem;
 
   button {
-    background: var(--white);
-    border: 1px solid var(--white);
+    background: var(--blue);
+    border: 1px solid var(--blue);
+    color: var(--white);
     height: 40px;
     border-radius: 20px;
     padding: 0 2rem;
@@ -57,6 +58,7 @@
 
     &:nth-child(1) {
       color: var(--green);
+      background: var(--white);
       border-color: var(--gren);
     }
 
@@ -65,7 +67,7 @@
 
     &:nth-child(3) {
       background: var(--green);
-      border-color: var(--gren);
+      border-color: var(--green);
     }
 
     &:nth-child(4) {

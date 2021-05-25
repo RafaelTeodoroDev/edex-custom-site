@@ -68,39 +68,14 @@
         & + button {
           margin-left: 0.5rem;
         }
-
-        &:disabled {
-          opacity: 0.6;
-          pointer-events: none;
-        }
       }
     }
   }
 }
 
-.numberContainer {
-  display: flex;
-  flex-direction: row;
-  margin-top: 0.25rem;
-
-  .number {
-    align-items: center;
-    background: var(--red);
-    border-radius: 3px;
-    color: var(--white);
-    display: flex;
-    height: 20px;
-    font-size: 0.8rem;
-    padding: 0 0.8rem;
-
-    & + .number {
-      margin-left: 0.5rem;
-    }
-  }
-}
-
-.price {
+.info {
   margin-top: 1rem;
   font-size: 0.8rem;
   font-style: italic;
+  margin-bottom: 1rem;
 }

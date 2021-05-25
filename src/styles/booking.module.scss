@@ -130,6 +130,29 @@
   }
 }
 
+.buttonWhatsapp {
+  background: var(--green);
+  color: var(--white);
+  border-radius: 2.25rem;
+
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 60px;
+  width: auto;
+  max-width: 100%;
+
+  font-size: 1.225rem;
+  font-weight: 600;
+
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+
+  svg {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+}
 
 .paymentMethods {
   h2 {

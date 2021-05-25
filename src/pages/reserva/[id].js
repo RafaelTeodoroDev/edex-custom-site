@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 
 import { useState, useMemo, useEffect } from 'react';
 import api from '../../services/api';
@@ -7,7 +8,7 @@ import { useForm } from 'react-hook-form';
 
 import Markdown from 'react-markdown';
 
-import { FaExclamationCircle, FaCheckCircle } from 'react-icons/fa';
+import { FaExclamationCircle, FaCheckCircle, FaWhatsapp } from 'react-icons/fa';
 
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -103,6 +104,15 @@ export default function Booking({ paymentMethods }) {
                   <span>{totalPriceFormatted}</span>
                 </li>
               </ul>
+
+              {booking.raffle?.whatsapp !== null && (
+                <Link href={booking.raffle?.whatsapp} passHref>
+                  <a className={styles.buttonWhatsapp} target="_blank">
+                    <FaWhatsapp />
+                    Entrar no grupo do Whatsapp
+                  </a>
+                </Link>
+              )}
 
               {booking.is_paid && (
                 <span className={styles.billingSuccess}>

@@ -1,5 +1,3 @@
-import { useMemo, useState } from 'react';
-
 import { useForm } from "react-hook-form";
 import { FaTimes } from 'react-icons/fa';
 import { useRouter } from 'next/router';
@@ -11,35 +9,24 @@ import api from '../../services/api';
 
 import styles from './styles.module.scss';
 
-export function SubscriptionModal({ isOpen, onRequestClose, data }) {
+export function SearchModal({ isOpen, onRequestClose, data }) {
   const { query, push } = useRouter();
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const [submiting, setSubmiting] = useState(false)
   
   const { id } = query;
 
-  const priceFormatted = useMemo(() => {
-    return (data.numbers.length * data.raffle?.ticket_price)
-      .toLocaleString('pt-BR', {
-        currency: 'BRL',
-        style: 'currency'
-      });
-  }, [data])
-
   async function onSubmit(formData) {
     try {
-      setSubmiting(true);
-      const response = await api.post('/bookings', {
-        ...formData,
-        numbers: data.numbers,
-        raffle_id: id,
-      })
+      const response = await api.get('/bookings/search', { params: {
+        phone: formData.phone,
+        raffle_id: id
+      } })
 
       push(`/reserva/${response.data.uid}`)
 
       onRequestClose();
-    } finally {
-      setSubmiting(false);
+    } catch(err) {
+      console.log(err)
     }
   }
 
@@ -59,26 +46,11 @@ export function SubscriptionModal({ isOpen, onRequestClose, data }) {
         </header>
 
         <main>
-          <span>Deseja reservar o(s) número(s):</span>
-          
-          <div className={styles.numberContainer}>
-            {data.numbers.map(number => (
-              <div className={styles.number}>
-                {number}
-              </div>
-            ))}
-          </div>
+          <span>Consulte sua reserva</span>
 
-          <div className={styles.price}>
-            O valor da reserva é {priceFormatted}
+          <div className={styles.info}>
+            Preencha o número do seu telefone para consultar sua reserva neste sorteio.
           </div>
-
-          <input type="hidden" {...register('numbers')} value={data.numbers.join(',')} />
-        
-          <input
-            {...register('name', { required: true })}
-            placeholder="Insira o seu nome completo"
-          />
 
           <InputPhone
             {...register('phone', { required: true })}
@@ -92,8 +64,8 @@ export function SubscriptionModal({ isOpen, onRequestClose, data }) {
             Cancelar
           </button>
 
-          <button className={styles.buttonSubmit} disabled={submiting}>
-            {submiting ? 'Fazendo reserva...': 'Reservar'}
+          <button className={styles.buttonSubmit}>
+            Consultar
           </button>
         </footer>
       </form>
