@@ -106,7 +106,7 @@ export default function Booking({ paymentMethods }) {
               </ul>
 
               {booking.raffle?.whatsapp !== null && (
-                <Link href={booking.raffle?.whatsapp} passHref>
+                <Link href={booking?.raffle?.whatsapp || ''} passHref>
                   <a className={styles.buttonWhatsapp} target="_blank">
                     <FaWhatsapp />
                     Entrar no grupo do Whatsapp
