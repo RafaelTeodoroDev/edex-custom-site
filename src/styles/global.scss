@@ -124,7 +124,7 @@ a {
     .carousel {
       .thumbs-wrapper {
         .thumbs {
-          grid-template-columns: 3fr;
+          grid-template-columns: repeat(10, 1fr);
 
 
         }
