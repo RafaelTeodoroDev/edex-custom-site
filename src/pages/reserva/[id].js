@@ -141,7 +141,7 @@ export default function Booking({ paymentMethods }) {
                       
                   {booking.raffle?.whatsapp !== null && (
                     <Link href={booking?.raffle?.whatsapp || ''} passHref>
-                      <a href="https://wa.me/554788491010" className={styles.buttonWhatsapp} target="_blank">
+                      <a className={styles.buttonWhatsapp} target="_blank">
                         <FaWhatsapp />
                         Envie o comprovante por Whatsapp
                       </a>
