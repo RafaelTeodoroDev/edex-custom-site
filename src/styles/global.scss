@@ -56,6 +56,12 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 999;
+
+  @media (max-width: 600px) {
+    align-items: flex-start;
+    margin-top: 2rem;
+  }
 }
 
 .carousel-root {
@@ -96,6 +102,31 @@ a {
             width: 100%;
             object-fit: cover;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-root {
+    margin: 0 2rem 2rem;
+
+    .slide {
+      height: 350px;
+  
+      img {
+        height: 650px;
+        object-fit: cover;
+      }
+    }
+
+    .carousel {
+      .thumbs-wrapper {
+        .thumbs {
+          grid-template-columns: 3fr;
+
+
         }
       }
     }

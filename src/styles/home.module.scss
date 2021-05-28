@@ -1,6 +1,10 @@
 .container {
   margin: 0 auto;
   width: 1160px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .raffle {

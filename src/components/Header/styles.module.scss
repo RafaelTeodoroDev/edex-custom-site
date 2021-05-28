@@ -8,6 +8,13 @@
     margin-right: 4rem;
     width: 250px;
   }
+
+  @media (max-width: 600px) {
+
+    > img {
+      width: 100px;
+    }
+  }
 }
 
 .menu {
@@ -27,6 +34,12 @@
 
     & + a {
       margin-left: 2rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    a {
+      font-size: 0.874rem;
     }
   }
 }

@@ -17,6 +17,15 @@
       text-align: center;
     }
   }
+
+  @media (max-width: 600px) {
+    width: 100%;
+
+    > main {
+      grid-template-columns: 1fr;
+      padding: 0 2rem;
+    }
+  }
 }
 
 .infoContainer {
@@ -81,6 +90,23 @@
         margin-bottom: 1.5rem;
       }
 
+      label {
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+
+        svg {
+          margin-right: 0.5rem;
+        }
+      }
+
+      .uploadBilling {
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+      }
+
       button {
         background: var(--green);
         border: 0;
@@ -101,6 +127,18 @@
     img {
       max-width: 100%;
       border-radius: 10px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    > main {
+      form {
+        label {
+          text-align: center;
+          display: flex;
+          justify-content: center;
+        }
+      }
     }
   }
 }
@@ -152,6 +190,24 @@
     font-size: 2rem;
     margin-right: 1rem;
   }
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
+}
+
+.or {
+  font-size: 1.3rem;
+  font-weight: 700;
+
+  color: var(--white);
+  display: flex;
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
+
+  align-items: center;
+  justify-content: center;
 }
 
 .paymentMethods {
@@ -186,6 +242,14 @@
         font-size: 0.8rem;
         line-height: 1.4rem;
       }
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 0 2rem;
+
+    > main {
+      margin-bottom: 4rem;
     }
   }
 }

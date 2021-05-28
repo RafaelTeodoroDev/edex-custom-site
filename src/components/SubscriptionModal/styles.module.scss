@@ -76,6 +76,12 @@
       }
     }
   }
+  
+  @media (max-width: 600px) {
+    min-width: auto;
+    width: 100%;
+    margin: 0 2rem;
+  }
 }
 
 .numberContainer {
@@ -97,6 +103,7 @@
       margin-left: 0.5rem;
     }
   }
+
 }
 
 .price {

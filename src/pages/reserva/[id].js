@@ -6,6 +6,8 @@ import api from '../../services/api';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
+import { FaUpload } from 'react-icons/fa';
+
 import Markdown from 'react-markdown';
 
 import { FaExclamationCircle, FaCheckCircle, FaWhatsapp } from 'react-icons/fa';
@@ -19,7 +21,9 @@ export default function Booking({ paymentMethods }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
+
+  const selectedFile = watch('billing') || [];
 
   const [booking, setBooking] = useState({});
   const [submiting, setSubmiting] = useState(false);
@@ -105,14 +109,6 @@ export default function Booking({ paymentMethods }) {
                 </li>
               </ul>
 
-              {booking.raffle?.whatsapp !== null && (
-                <Link href={booking?.raffle?.whatsapp || ''} passHref>
-                  <a className={styles.buttonWhatsapp} target="_blank">
-                    <FaWhatsapp />
-                    Entrar no grupo do Whatsapp
-                  </a>
-                </Link>
-              )}
 
               {booking.is_paid && (
                 <span className={styles.billingSuccess}>
@@ -122,16 +118,36 @@ export default function Booking({ paymentMethods }) {
               )}
 
               {!booking.is_paid && !booking.billing && (
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <p>Para prosseguir com o pagamento, é necessário que você envie o seu comprovante do pagamento.</p>
+                <>
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <p>Para prosseguir com o pagamento, é necessário que você envie o seu comprovante do pagamento.</p>
 
-                  <input type="file" {...register('billing')} />
-                  <small>{errors.billing?.message}</small>
+                    <label htmlFor="upload-billing">
+                      <FaUpload />
+                      {!!selectedFile.length ? selectedFile[0].name : 'Carregue o seu comprovante'}
+                    </label>
+                    <input type="file" {...register('billing')} id="upload-billing" className={styles.uploadBilling} />
+                    
+                    <small>{errors.billing?.message}</small>
 
-                  <button type="submit" disabled={submiting}>
-                    {submiting ? 'Enviando...' : 'Enviar comprovante'}
-                  </button>
-                </form>
+                    {!!selectedFile.length && (
+                      <button type="submit" disabled={submiting}>
+                        {submiting ? 'Enviando...' : 'Enviar comprovante'}
+                      </button>
+                    )}
+                  </form>
+
+                  <span className={styles.or}>ou</span>
+                      
+                  {booking.raffle?.whatsapp !== null && (
+                    <Link href={booking?.raffle?.whatsapp || ''} passHref>
+                      <a className={styles.buttonWhatsapp} target="_blank">
+                        <FaWhatsapp />
+                        Envie o comprovante por Whatsapp
+                      </a>
+                    </Link>
+                  )}
+                </>
               )}
 
               {!booking.is_paid && booking.billing && (
