@@ -22,7 +22,10 @@
     width: 100%;
 
     > main {
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      flex-wrap: wrap;
       padding: 0 1rem;
     }
   }
