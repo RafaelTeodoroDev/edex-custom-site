@@ -22,8 +22,9 @@
     width: 100%;
 
     > main {
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: 400px;
+      grid-template-columns: 1fr;
       padding: 0 2rem;
     
     }
