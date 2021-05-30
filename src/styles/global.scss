@@ -128,11 +128,8 @@ a {
           display: flex;
           flex-direction: row;
           justify-content: space-around;
-            
-          .thumb {
-            gap: 3px;
-          }
-        }
+          margin: 0 1px;
+  
       }
     }
   }
