@@ -128,7 +128,10 @@ a {
           display: flex;
           flex-direction: row;
           justify-content: space-around;
+          
+          .thumb {
           padding: 0 5px;
+          }
   
       }
     }
