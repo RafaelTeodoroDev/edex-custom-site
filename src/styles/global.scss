@@ -66,11 +66,12 @@ a {
 
 .carousel-root {
   .slide {
-    height: 650px;
+    height: 350px;
 
     img {
-      height: 650px;
+      height: 350px;
       object-fit: cover;
+      
     }
   }
   .carousel {
@@ -104,6 +105,8 @@ a {
         }
       }
     }
+  }
+}
    @media (max-width: 600px) {
   .carousel-root {
     margin: 0 2rem 2rem;
@@ -131,6 +134,3 @@ a {
     }
   }
 }
-  }
-}
-
