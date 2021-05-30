@@ -129,6 +129,10 @@ a {
           flex-direction: row;
           justify-content: space-around;
           gap: 2px;
+            
+          .thumb {
+            gap: 3px;
+          }
         }
       }
     }
