@@ -1,5 +1,5 @@
 .container {
-  margin: 0;
+  margin: 0 auto;
   width: 1160px;
 
   > main {
@@ -19,7 +19,7 @@
   }
 
   @media (max-width: 600px) {
-    width: 100%;
+    width: 80%;
 
     > main {
       display: flex;
