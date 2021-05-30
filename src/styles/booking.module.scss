@@ -19,14 +19,14 @@
   }
 
   @media (max-width: 600px) {
-    width: 80%;
+    width: 100%;
 
     > main {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       flex-wrap: wrap;
-      padding: 0 2rem;
+      padding: 0 7rem;
     
     }
   }
