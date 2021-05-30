@@ -128,10 +128,9 @@ a {
           display: flex;
           flex-direction: row;
           justify-content: space-around;
-          gap: 2px;
             
           .thumb {
-            margin-left: 10px;
+            gap: 3px;
           }
         }
       }
