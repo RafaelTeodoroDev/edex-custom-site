@@ -256,9 +256,12 @@
       display: grid;
       grid-template-columns: 1fr;
       
-      img {
-        width: 100%;
+      .paymentMethod{
+      
+        img {
+          width: 100%;
       }
     }
-  }
+   }
+ }
 }
