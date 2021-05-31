@@ -24,10 +24,8 @@
 
     > main {
       
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 2rem;
       max-width: 90%;
       margin: 3rem auto 4rem;
