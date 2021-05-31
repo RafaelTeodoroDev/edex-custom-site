@@ -20,14 +20,13 @@
   }
 
   @media (max-width: 600px) {
-    width: 100%;
+    width: 80%;
 
     > main {
       
       display: grid;
       grid-template-columns: 1fr;
       gap: 2rem;
-      max-width: 80%;
       margin: 3rem auto;
       
     
