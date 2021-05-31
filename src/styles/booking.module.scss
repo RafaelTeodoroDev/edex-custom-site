@@ -225,13 +225,6 @@
     justify-content: center;
     margin-bottom: 8rem;
     
-    @media (max-width: 600px) {
-    margin-bottom: 4rem;
-      display: flex;
-      justify-content: space-around;
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
 
     .paymentMethod {
       border: 1px solid var(--white);
@@ -242,9 +235,7 @@
       img {
         margin-bottom: 1.2rem;
         heigth: 300px;
-          @media (max-width: 600px) {
-        width: 100%;
-        }
+       
       }
       
       strong {
