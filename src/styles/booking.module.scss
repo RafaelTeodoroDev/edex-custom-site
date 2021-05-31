@@ -253,6 +253,8 @@
 
     > main {
       margin-bottom: 4rem;
+      display: grid;
+      grid-template-columns: 1fr;
 
     .paymentMethod {
       border: 1px solid var(--white);
