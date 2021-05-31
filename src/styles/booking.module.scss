@@ -23,10 +23,11 @@
 
     > main {
       
-      display: grid;
-      grid-template-columns: 1fr;
-      padding: 0 0.5rem;
-      margin: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin: 2rem;
       
     
     }
