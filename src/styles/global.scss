@@ -40,6 +40,7 @@ textarea,
 select,
 button {
   font: 400 1rem "Montserrat", sans-serif;
+ 
 }
 
 button {
@@ -71,21 +72,21 @@ a {
     img {
       height: 650px;
       object-fit: cover;
+      
     }
   }
-
   .carousel {
     .thumbs-wrapper {
       margin: 0;
       margin-top: 8px;
 
       .thumbs {
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        gap: 5px;
+        display: flex;
+          flex-direction: row;
+          justify-content: space-around;
 
         .thumb {
-          margin: 0;
+          margin: 0 3px;
           border: 0;
           padding: 0;
 
@@ -107,16 +108,16 @@ a {
     }
   }
 }
-
-@media (max-width: 600px) {
+   @media (max-width: 600px) {
   .carousel-root {
     margin: 0 2rem 2rem;
 
     .slide {
       height: 350px;
+      
   
       img {
-        height: 650px;
+        height: 350px;
         object-fit: cover;
       }
     }
@@ -124,12 +125,14 @@ a {
     .carousel {
       .thumbs-wrapper {
         .thumbs {
-           
-          grid-template-columns: repeat(10, 1fr);
-
-
-        }
+                   
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+         
+  
       }
     }
   }
+ }
 }

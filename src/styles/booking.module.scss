@@ -22,8 +22,11 @@
     width: 100%;
 
     > main {
+      
+      display: grid;
       grid-template-columns: 1fr;
-      padding: 0 1rem;
+      padding: 0 2rem;
+    
     }
   }
 }
@@ -79,11 +82,10 @@
         }
       }
     }
-
     form {
       display: flex;
       flex-direction: column;
-
+      
       p {
         font-size: 0.9rem;
         font-style: italic;
@@ -100,6 +102,7 @@
           margin-right: 0.5rem;
         }
       }
+    }
 
       .uploadBilling {
         opacity: 0;
@@ -141,7 +144,6 @@
       }
     }
   }
-}
 
 .billingAlert {
   display: flex;
@@ -222,6 +224,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 8rem;
+    
 
     .paymentMethod {
       border: 1px solid var(--white);
@@ -243,14 +246,6 @@
         font-size: 0.8rem;
         line-height: 1.4rem;
       }
-    }
-  }
-
-  @media (max-width: 600px) {
-    padding: 0 2rem;
-
-    > main {
-      margin-bottom: 4rem;
     }
   }
 }
