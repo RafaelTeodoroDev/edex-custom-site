@@ -5,6 +5,7 @@
   > main {
     display: grid;
     grid-template-columns: 1fr 400px;
+    margin: 1rem;
     gap: 2rem;
 
     margin-top: 3rem;
@@ -27,7 +28,6 @@
       flex-direction: row;
       justify-content: flex-start;
       flex-wrap: wrap;
-      margin: 1rem;
       gap: 2rem;
       
     
