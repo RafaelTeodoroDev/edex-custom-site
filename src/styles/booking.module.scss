@@ -254,4 +254,19 @@
       }
     }
   }
+  @media (max-width: 600px) {
+    > main {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin: 1rem;
+      
+      justify-content: center;
+      .paymentMethod {
+        width: 70%;
+        margin: 0 auto 20px auto;
+        
+
+      }
+    }
+  }
 }
