@@ -13,11 +13,11 @@ export function SubscriptionButton({ value, raffle, isSelected, isSubscribed, on
 
   const tooltip = useMemo(() => {
     if (isSubscribed && isPaid) {
-      return `Número ${value} pago por:\n\n ${isSubscribed?.booking.name}`;
+      return `Número ${value} pago por:\n\n ${isSubscribed?.booking?.name}`;
     } 
 
     if (isSubscribed) {
-      return `Número ${value} reservado por: ${isSubscribed?.booking.name}`;
+      return `Número ${value} reservado por: ${isSubscribed?.booking?.name}`;
     }
   }, [value, isSelected, isSubscribed, isPaid])
 
