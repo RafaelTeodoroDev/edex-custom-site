@@ -252,8 +252,10 @@
 
     > main {
       margin-bottom: 4rem;
-      display: grid;
-      grid-template-columns: 1fr;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+      flex-wrap: wrap;
 
       .paymentMethod {
         border: 1px solid var(--white);
