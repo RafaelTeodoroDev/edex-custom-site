@@ -253,15 +253,16 @@
 
     > main {
       margin-bottom: 4rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      
-      .paymentMethod{
-      
-        img {
-          width: 100%;
+
+    .paymentMethod {
+      border: 1px solid var(--white);
+      padding: 2rem;
+      width: 33%;
+      text-align: center;
+
+      img {
+        width: 100%;
+        margin-bottom: 1.2rem;
       }
     }
-   }
- }
-}
+  }
