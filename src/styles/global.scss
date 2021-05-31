@@ -80,10 +80,9 @@ a {
       margin-top: 8px;
 
       .thumbs {
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        gap: 5px;
-        justify-content: space-around;
+        display: flex;
+          flex-direction: row;
+          justify-content: space-around;
 
         .thumb {
           margin: 0;
