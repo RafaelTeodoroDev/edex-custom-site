@@ -86,13 +86,9 @@
       display: flex;
       flex-direction: column;
       
-      @media screen and (-webkit-min-device-pixel-ratio:0) { 
-        select:focus,
-        textarea:focus,
-        input:focus {
-          font-size: 16px;
-          background: #eee;
-        }
+      input {
+        font-size: 16px;
+      }
 
       p {
         font-size: 0.9rem;
