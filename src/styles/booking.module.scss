@@ -131,19 +131,20 @@
       max-width: 100%;
       border-radius: 10px;
     }
-  }
-
-  @media (max-width: 600px) {
-    > main {
-      form {
-        label {
-          text-align: center;
-          display: flex;
-          justify-content: center;
+    @media (max-width: 600px) {
+      > main {
+        form {
+          label {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+          }
         }
       }
     }
   }
+
+
 
 .billingAlert {
   display: flex;
