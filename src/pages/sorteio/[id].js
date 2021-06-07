@@ -143,7 +143,7 @@ export default function Raffle({ raffle, subscriptions }) {
 
           {raffle?.rules && (
             <section className={styles.rules}>
-              <h3>Descrição</h3>
+              <h3>Regulamento</h3>
 
               <Markdown>{raffle?.rules}</Markdown>
             </section>
