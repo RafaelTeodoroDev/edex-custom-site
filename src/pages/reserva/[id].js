@@ -1,44 +1,55 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import Head from "next/head";
+import Link from "next/link";
 
-import { useState, useMemo, useEffect } from 'react';
-import api from '../../services/api';
-import { useRouter } from 'next/router';
-import { useForm } from 'react-hook-form';
+import { useState, useMemo, useEffect } from "react";
+import api from "../../services/api";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
 
-import { FaUpload } from 'react-icons/fa';
+import { FaUpload } from "react-icons/fa";
 
-import Markdown from 'react-markdown';
 
-import { FaExclamationCircle, FaCheckCircle, FaWhatsapp } from 'react-icons/fa';
 
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+import { FaExclamationCircle, FaCheckCircle, FaWhatsapp } from "react-icons/fa";
 
-import styles from '../../styles/booking.module.scss';
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
+import { PaymentMethods } from "../../components/PaymentMethods";
+
+import styles from "../../styles/booking.module.scss";
 
 export default function Booking({ paymentMethods }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const { register, handleSubmit, formState: { errors }, watch } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm();
 
-  const selectedFile = watch('billing') || [];
+  const selectedFile = watch("billing") || [];
 
   const [booking, setBooking] = useState({});
   const [submiting, setSubmiting] = useState(false);
 
   const numbers = useMemo(() => {
-    return booking.subscriptions?.map(subscription => subscription.number).join(', ') || ''
-  }, [booking])
+    return (
+      booking.subscriptions
+        ?.map((subscription) => subscription.number)
+        .join(", ") || ""
+    );
+  }, [booking]);
 
   const totalPriceFormatted = useMemo(() => {
-    return (booking.subscriptions?.length * booking.raffle?.ticket_price)
-      .toLocaleString('pt-BR', {
-        currency: 'BRL',
-        style: 'currency'
-      });
-  }, [booking])
+    return (
+      booking.subscriptions?.length * booking.raffle?.ticket_price
+    ).toLocaleString("pt-BR", {
+      currency: "BRL",
+      style: "currency",
+    });
+  }, [booking]);
 
   async function loadBooking() {
     const response = await api.get(`/bookings/${id}`);
@@ -51,12 +62,13 @@ export default function Booking({ paymentMethods }) {
       setSubmiting(true);
 
       const formData = new FormData();
-      formData.append('data', "{}")
-      formData.append('files.billing', data.billing[0]);
+      formData.append("data", "{}");
+      formData.append("files.billing", data.billing[0]);
 
-      await api.put(`/bookings/${booking.id}`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });
-      loadBooking()
-
+      await api.put(`/bookings/${booking.id}`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      loadBooking();
     } finally {
       setSubmiting(false);
     }
@@ -64,7 +76,7 @@ export default function Booking({ paymentMethods }) {
 
   useEffect(() => {
     id && loadBooking();
-  }, [id])
+  }, [id]);
 
   return (
     <>
@@ -109,7 +121,6 @@ export default function Booking({ paymentMethods }) {
                 </li>
               </ul>
 
-
               {booking.is_paid && (
                 <span className={styles.billingSuccess}>
                   <FaCheckCircle />
@@ -120,27 +131,37 @@ export default function Booking({ paymentMethods }) {
               {!booking.is_paid && !booking.billing && (
                 <>
                   <form onSubmit={handleSubmit(onSubmit)}>
-                    <p>Para prosseguir com o pagamento, é necessário que você envie o seu comprovante do pagamento.</p>
+                    <p>
+                      Para prosseguir com o pagamento, é necessário que você
+                      envie o seu comprovante do pagamento.
+                    </p>
 
                     <label htmlFor="upload-billing">
                       <FaUpload />
-                      {!!selectedFile.length ? selectedFile[0].name : 'Carregue o seu comprovante'}
+                      {!!selectedFile.length
+                        ? selectedFile[0].name
+                        : "Carregue o seu comprovante"}
                     </label>
-                    <input type="file" {...register('billing')} id="upload-billing" className={styles.uploadBilling} />
-                    
+                    <input
+                      type="file"
+                      {...register("billing")}
+                      id="upload-billing"
+                      className={styles.uploadBilling}
+                    />
+
                     <small>{errors.billing?.message}</small>
 
                     {!!selectedFile.length && (
                       <button type="submit" disabled={submiting}>
-                        {submiting ? 'Enviando...' : 'Enviar comprovante'}
+                        {submiting ? "Enviando..." : "Enviar comprovante"}
                       </button>
                     )}
                   </form>
 
                   <span className={styles.or}>ou</span>
-                      
+
                   {booking.raffle?.whatsapp !== null && (
-                    <Link href={booking?.raffle?.whatsapp || ''} passHref>
+                    <Link href={booking?.raffle?.whatsapp || ""} passHref>
                       <a className={styles.buttonWhatsapp} target="_blank">
                         <FaWhatsapp />
                         Envie o comprovante por Whatsapp
@@ -153,7 +174,8 @@ export default function Booking({ paymentMethods }) {
               {!booking.is_paid && booking.billing && (
                 <span className={styles.billingAlert}>
                   <FaExclamationCircle />
-                  Nós recebemos o seu comprovante, em breve vamos analisar o seu pagamento.
+                  Nós recebemos o seu comprovante, em breve vamos analisar o seu
+                  pagamento.
                 </span>
               )}
             </main>
@@ -177,28 +199,15 @@ export default function Booking({ paymentMethods }) {
                 </li>
               </ul>
 
-              <img 
-                src={booking.raffle?.images[0].url} 
-                alt={booking.raffle?.name} 
+              <img
+                src={booking.raffle?.images[0].url}
+                alt={booking.raffle?.name}
               />
             </main>
           </section>
         </main>
 
-        <section className={styles.paymentMethods}>
-          <h2>Formas de pagamento</h2>
-
-          <main>
-            {paymentMethods?.map(method => (
-              <div className={styles.paymentMethod}>
-                <img src={method.logo.url} alt={method.name} />
-
-                <strong>{method.name}</strong>
-                <Markdown>{method.description}</Markdown>
-              </div>
-            ))}
-          </main>
-        </section>
+        <PaymentMethods data={paymentMethods} />
 
         <Footer />
       </div>
@@ -207,11 +216,11 @@ export default function Booking({ paymentMethods }) {
 }
 
 export const getServerSideProps = async () => {
-  const response = await api.get('/payment-methods');
+  const response = await api.get("/payment-methods");
 
   return {
     props: {
       paymentMethods: response.data,
-    }
-  }
+    },
+  };
 };

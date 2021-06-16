@@ -8,6 +8,7 @@ import { SubscriptionModal } from '../../components/SubscriptionModal';
 import { SearchModal } from '../../components/SearchModal';
 import { SubscriptionButton } from '../../components/SubscriptionButton';
 import { RaffleGallery } from '../../components/RaffleGallery';
+import { PaymentMethods } from "../../components/PaymentMethods";
 
 import Markdown from 'react-markdown';
 
@@ -17,7 +18,7 @@ import styles from '../../styles/raffle.module.scss';
 
 import { parseISO, format } from 'date-fns';
 
-export default function Raffle({ raffle, subscriptions }) {
+export default function Raffle({ raffle, subscriptions, paymentMethods }) {
   const { query, isFallback } = useRouter();
   const { id } = query;
 
@@ -57,6 +58,8 @@ export default function Raffle({ raffle, subscriptions }) {
     if (selecteds.find(selected => selected === number)) {
       setSelecteds(prev => prev.filter(selected => selected !== number));
     } else {
+      if (selecteds.length === 2) return;
+
       setSelecteds(prev => [...prev, number]);
     }
   }
@@ -143,7 +146,7 @@ export default function Raffle({ raffle, subscriptions }) {
 
           {raffle?.rules && (
             <section className={styles.rules}>
-              <h3>Regulamento</h3>
+              <h3>Descrição</h3>
 
               <Markdown>{raffle?.rules}</Markdown>
             </section>
@@ -167,6 +170,8 @@ export default function Raffle({ raffle, subscriptions }) {
         />
       </div>
 
+      <PaymentMethods data={paymentMethods} />
+
       <Footer />
     </>
   );
@@ -184,13 +189,15 @@ export const getStaticPaths = () => {
 export const getStaticProps = async (context) => {
   const { id } = context.params;
 
-  const raffleResponse = await api.get(`/raffles/${id}`)
-  const subscriptionsResponse = await api.get('/subscriptions', { params: { raffle_id: id } });
+  const { data: raffle } = await api.get(`/raffles/${id}`)
+  const { data: subscriptions } = await api.get('/subscriptions', { params: { raffle_id: id } });
+  const { data: paymentMethods } = await api.get('/payment-methods');
 
   return {
     props: {
-      raffle: raffleResponse.data,
-      subscriptions: subscriptionsResponse.data
+      raffle,
+      subscriptions,
+      paymentMethods,
     },
     revalidate: 1,
   }
